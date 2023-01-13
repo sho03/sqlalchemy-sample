@@ -1,6 +1,6 @@
 import sqlalchemy
 from sqlalchemy.orm import sessionmaker
-from user import User
+from model.user import User
 
 user = 'user'
 password = 'password'
