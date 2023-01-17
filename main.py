@@ -1,6 +1,9 @@
 from model.user import User
 from settings import session
 
+# 起動させるたびにデータが増え続けてしまうため、Userテーブルのデータは全て消す
+session.query(User).delete()
+
 new_user = User(name = "user1", email = "sample1@example.com")
 # add ~ commitをすることでDBに反映される
 session.add(new_user)
