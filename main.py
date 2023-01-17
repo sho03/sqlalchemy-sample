@@ -1,16 +1,5 @@
-import sqlalchemy
-from sqlalchemy.orm import sessionmaker
 from model.user import User
-
-user = 'user'
-password = 'password'
-db = 'db'
-port = 3306
-
-engine = sqlalchemy.create_engine(f'mysql+pymysql://{user}:{password}@localhost:{port}/{db}?charset=utf8')
-
-SessionClass = sessionmaker(engine)
-session = SessionClass()
+from settings import session
 
 new_user = User(name = "user1", email = "sample1@example.com")
 # add ~ commitをすることでDBに反映される
@@ -27,4 +16,3 @@ session.commit()
 # userテーブルのレコード全て取得
 users = session.query(User).all()
 print(users)
-
